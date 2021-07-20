@@ -24,8 +24,7 @@ void 	*return_death(uint64_t c_time, t_phil *ph)
 
 void	ft_sleep(t_phil *ph, uint64_t c_time)
 {
-	printf("[%llu] %d is sleeping\n", (get_time() - c_time) / 1000,
-		   ph->uni_num);
+	check2print("is is sleeping", ph, c_time);
 	ft_usleep(ph->t2s);
 	return ;
 }

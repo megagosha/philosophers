@@ -63,3 +63,12 @@ uint64_t	get_time(void)
 		return (0);
 	return (t.tv_sec * (uint64_t)1000000 + t.tv_usec);
 }
+
+void	check2print(char *str, t_phil *ph, uint64_t time)
+{
+	if (check2die(ph))
+		return ;
+	printf("[%llu] %d %s\n",
+		   (get_time() - time) / 1000, ph->uni_num, str);
+	return ;
+}

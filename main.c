@@ -8,12 +8,7 @@
 int	check2die(t_phil *ph)
 {
 	pthread_mutex_lock(ph->lock[ph->num_phil]);
-	if (*ph->die == 1)
-	{
-		pthread_mutex_unlock(ph->lock[ph->num_phil]);
-		return (1);
-	}
-	if (*ph->rf == ph->num_phil)
+	if (*ph->die == 1 || *ph->rf == ph->num_phil)
 	{
 		pthread_mutex_unlock(ph->lock[ph->num_phil]);
 		return (1);
@@ -26,8 +21,9 @@ void	set_death(t_phil *ph, uint64_t c_time)
 {
 	pthread_mutex_lock(ph->lock[ph->num_phil]);
 	*ph->die = 1;
-	printf("[%llu] %d died!\n",
+	printf("\033[1;31m[%llu] %d died!\n",
 		   (get_time() - c_time) / 1000, ph->uni_num);
+	printf("\033[0m");
 	pthread_mutex_unlock(ph->lock[ph->num_phil]);
 	return ;
 }
