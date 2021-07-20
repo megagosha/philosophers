@@ -36,6 +36,7 @@ typedef struct s_phil {
 	int				nte;
 	pthread_mutex_t	**lock;
 	int				*die;
+	int				*forks;
 	int				*rf;
 
 }	t_phil;
@@ -48,6 +49,7 @@ typedef struct s_params {
 	int				nte;
 	int				r2d;
 	int				die;
+	int				*forks;
 	pthread_mutex_t	**lock;
 	pthread_t		*tid;
 	t_phil			*phil;

@@ -34,8 +34,11 @@ int	init_params(t_params *params, int argc, char **argv)
 	params->r2d = 0;
 	params->tid = malloc(sizeof(pthread_t) * params->num_phil);
 	params->phil = malloc(sizeof(t_phil) * params->num_phil);
-	if (params->tid == NULL || params->phil == NULL)
+	params->forks = malloc(sizeof(int));
+	if (params->tid == NULL || params->phil == NULL
+		|| params->forks == NULL)
 		return (1);
+	*params->forks = params->num_phil;
 	return (alloc_mutex(params));
 }
 
@@ -52,6 +55,7 @@ t_phil	create_phil(t_params *params, int num)
 	phil.die = &params->die;
 	phil.num_phil = params->num_phil;
 	phil.rf = &params->r2d;
+	phil.forks = params->forks;
 	return (phil);
 }
 

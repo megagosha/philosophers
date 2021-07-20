@@ -40,6 +40,7 @@ int	return_fork(t_phil *ph)
 		l_fork = ph->num_phil - 1;
 	else
 		l_fork = ph->uni_num - 2;
+	*ph->forks += 2;
 	pthread_mutex_unlock(ph->lock[l_fork]);
 	pthread_mutex_unlock(ph->lock[r_fork]);
 	return (1);
@@ -62,5 +63,6 @@ int	get_fork(t_phil *ph)
 		l_fork = ph->uni_num - 2;
 	pthread_mutex_lock(ph->lock[l_fork]);
 	pthread_mutex_lock(ph->lock[r_fork]);
+	*ph->forks -= 2;
 	return (1);
 }

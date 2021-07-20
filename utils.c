@@ -12,6 +12,7 @@ void	clean_up(t_params *p)
 		i++;
 	}
 	free(p->lock);
+	free(p->forks);
 	free(p->tid);
 	free(p->phil);
 }
