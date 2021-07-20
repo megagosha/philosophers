@@ -65,5 +65,5 @@ uint64_t	get_time(void);
 int			eat(t_phil *ph, uint64_t time);
 void		return_fork(t_phil *ph);
 int			get_fork(t_phil *ph);
-
+void		set_death(t_phil *ph, uint64_t c_time);
 #endif

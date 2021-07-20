@@ -1,14 +1,17 @@
 NAME = philo
 
-FLAGS = clang++ -Wall -Wextra -Werror
+FLAGS = gcc -Wall -Wextra -Werror
 
 OBJ_DIR = obj/
 
-CFILES = main.c
+CFILES = main.c \
+		create.c \
+		eat.c \
+		utils.c
 
 CFIND = $(CFILES:%=%)
 
-OFILES = $(CFILES:%.cpp=%.o)
+OFILES = $(CFILES:%.c=%.o)
 
 OBJ = $(addprefix $(OBJ_DIR), $(OFILES))
 
@@ -24,7 +27,7 @@ $(OBJ): $(CFIND)
 				@$(MAKE) $(OFILES)
 $(OFILES):
 			@echo Compiled: $(@:obj/%=%)
-			@$(FLAGS)  -c -o $(OBJ_DIR)$@ $(@:%.o=%.cpp)
+			@$(FLAGS)  -c -o $(OBJ_DIR)$@ $(@:%.o=%.c)
 clean:
 				/bin/rm -rf $(OBJ_DIR)
 

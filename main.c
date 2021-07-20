@@ -1,7 +1,3 @@
-//
-// Created by George Tevosov on 13.07.2021.
-//
-
 #include "philo.h"
 
 /*

@@ -1,6 +1,4 @@
-//
-// Created by Elayne Debi on 7/20/21.
-//
+#include "philo.h"
 
 void	clean_up(t_params *p)
 {
