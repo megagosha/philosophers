@@ -53,4 +53,17 @@ typedef struct s_params {
 	t_phil			*phil;
 }	t_params;
 
+int			ft_atoi(const char *str);
+void		ft_usleep(uint64_t t);
+void		ft_sleep(t_phil *ph, uint64_t c_time);
+void 		*return_death(uint64_t c_time, t_phil *ph);
+void		clean_up(t_params *p);
+t_phil		create_phil(t_params *params, int num);
+int			init_params(t_params *params, int argc, char **argv);
+int			alloc_mutex(t_params *params);
+uint64_t	get_time(void);
+int			eat(t_phil *ph, uint64_t time);
+void		return_fork(t_phil *ph);
+int			get_fork(t_phil *ph);
+
 #endif
